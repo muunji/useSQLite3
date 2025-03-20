@@ -17,7 +17,7 @@ const db = new sqlite3.Database('test.db', (err) => {
 //데이터 저장 API
 app.post('/save', (req, res) => {
   const {text, isCheck, number} = req.body
-  console.log('data', data)
+  console.log('data', text, isCheck, number)
 
   const isCheckValue = isCheck !== 'on' ? 0 : 1
   const numberValue = number ? parseFloat(number) : null
