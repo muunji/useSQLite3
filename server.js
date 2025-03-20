@@ -33,6 +33,20 @@ app.post('/save', (req, res) => {
 })
 
 //데이터베이스를 JSON파일로 저장하는 API 추가
+app.get('/json', (req, res) => {
+  db.all(`SELECT * FROM test`, (err, rows) => {
+    if (err) {
+      console.error('DB 조회 실패', err.message)
+      res.status(500).send('DB 조회 실패')
+      return
+    }
 
+    //데이터를 JSON 형식으로 변환하여 파일로 저장
+    fs.writeFileSync('test.json', JSON.stringify(rows), 'utf-8')
+    console.log('데이터가 JSON파일로 저장됨')
+
+    res.json({message : 'JSON 파일 저장 완료'})
+  })
+})
 
 app.listen(3010, ()=>{console.log('DB : http://localhost:3010')})
