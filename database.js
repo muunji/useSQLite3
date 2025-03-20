@@ -10,7 +10,7 @@ export function createDB() {
         CREATE TABLE IF NOT EXISTS test (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           text TEXT NOT NULL,
-          isCheck TEXT NOT NULL,
+          isCheck INTEGER NOT NULL,
           number REAL
         )
       `, (err) => {

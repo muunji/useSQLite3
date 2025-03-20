@@ -29,8 +29,8 @@ app.post('/enter', async(req, res) => {
   let body = req.body
   console.log('body', body)
 
-  const isCheckValue = data.isCheck !== 'on' ? 0 : 1
-  const numberValue = data.number ? parseFloat(data.number) : null
+  const isCheckValue = body.isCheck !== 'on' ? 0 : 1
+  const numberValue = body.number ? parseFloat(body.number) : null
 
   //JSON 파일 저장
   // let origin = JSON.parse(fs.readFileSync('test.json'))
